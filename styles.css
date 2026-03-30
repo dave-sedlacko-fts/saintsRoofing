@@ -198,7 +198,7 @@ img {
     min-height: 600px;
     display: flex;
     align-items: center;
-    background: url('images/hero_image.jpeg') center/cover no-repeat;
+    background: url('images/hero_image_compressed.jpeg') center/cover no-repeat;
     margin-top: 80px;
 }
 
