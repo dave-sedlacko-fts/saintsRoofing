@@ -23,12 +23,25 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Simple contact form handler (placeholder)
+// Contact form handler - submit via fetch to FormSubmit
 const form = document.querySelector('.contact-form');
 if (form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('Thank you for your message! We will get back to you soon.');
-        form.reset();
+        const formData = new FormData(form);
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                alert('Thank you for your message! We will get back to you soon.');
+                form.reset();
+            } else {
+                alert('Something went wrong. Please try again or call us directly.');
+            }
+        }).catch(() => {
+            alert('Something went wrong. Please try again or call us directly.');
+        });
     });
 }
